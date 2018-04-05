@@ -97,7 +97,7 @@ namespace Geta.Epi.Commerce.Payments.Netaxept.Checkout.Business.PaymentSteps
         /// <returns></returns>
         private PaymentRequest CreatePaymentRequest(PaymentMethodDto paymentMethodDto, IPayment payment, IOrderForm orderForm, IOrderGroup orderGroup)
         {
-            var request = new PaymentRequest {EnableEasyPayments = true};
+            var request = new PaymentRequest();
 
             if (orderGroup.CustomerId != Guid.Empty)
             {
@@ -117,6 +117,7 @@ namespace Geta.Epi.Commerce.Payments.Netaxept.Checkout.Business.PaymentSteps
             request.OrderNumber = CartOrderNumberHelper.GenerateOrderNumber(orderGroup);
             
             request.Language = paymentMethodDto.GetParameter(NetaxeptConstants.TerminalLanguageField);
+            request.EnableEasyPayments = bool.Parse(paymentMethodDto.GetParameter(NetaxeptConstants.EnableEasyPaymentField, "false"));
 
             request.SuccessUrl = payment.Properties.GetStringValue(NetaxeptConstants.CallbackUrl, string.Empty);
 

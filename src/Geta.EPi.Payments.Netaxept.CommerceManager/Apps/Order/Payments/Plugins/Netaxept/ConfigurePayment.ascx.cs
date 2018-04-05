@@ -23,6 +23,9 @@ namespace Geta.EPi.Payments.Netaxept.CommerceManager.Apps.Order.Payments.Plugins
             var isProduction = bool.Parse(paymentMethod.GetParameter(NetaxeptConstants.IsProductionField, "false"));
             IsProductionCheckBox.Checked = isProduction;
 
+            var easyPayment = bool.Parse(paymentMethod.GetParameter(NetaxeptConstants.EnableEasyPaymentField, "false"));
+            EasyPaymentCheckBox.Checked = easyPayment;
+
             drdTerminalLanguage.SelectedValue = paymentMethod.GetParameter(NetaxeptConstants.TerminalLanguageField, "en_GB");
         }
 
@@ -40,7 +43,8 @@ namespace Geta.EPi.Payments.Netaxept.CommerceManager.Apps.Order.Payments.Plugins
             }
             paymentMethod.SetParameter(NetaxeptConstants.MerchantIdField, txtMerchantId.Text);
             paymentMethod.SetParameter(NetaxeptConstants.TokenField, txtToken.Text);
-            paymentMethod.SetParameter(NetaxeptConstants.IsProductionField, (IsProductionCheckBox.Checked ? "true" : "false"));
+            paymentMethod.SetParameter(NetaxeptConstants.IsProductionField, IsProductionCheckBox.Checked ? "true" : "false");
+            paymentMethod.SetParameter(NetaxeptConstants.EnableEasyPaymentField, EasyPaymentCheckBox.Checked ? "true" : "false");
             paymentMethod.SetParameter(NetaxeptConstants.TerminalLanguageField, drdTerminalLanguage.SelectedValue);
         }
         
