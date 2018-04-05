@@ -27,6 +27,7 @@
         public const string TokenField = "Token";
         public const string IsProductionField = "IsProduction";
         public const string TerminalLanguageField = "TerminalLanguage";
+        public const string EnableEasyPaymentField = "EasyPayment";
 
         /* Netaxept fields */
         public const string TerminalTestUrl = "https://test.epayment.nets.eu/terminal/default.aspx";

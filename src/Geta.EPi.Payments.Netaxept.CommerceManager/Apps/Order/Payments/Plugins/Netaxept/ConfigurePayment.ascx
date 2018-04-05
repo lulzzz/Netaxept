@@ -19,6 +19,12 @@
             </td>
         </tr>
         <tr>
+            <td class="FormLabelCell">Easy Payment:</td>
+            <td class="FormFieldCell">
+                <asp:CheckBox runat="server" ID="EasyPaymentCheckBox" />
+            </td>
+        </tr>
+        <tr>
             <td class="FormLabelCell">Is production:</td>
             <td class="FormFieldCell">
                 <asp:CheckBox runat="server" ID="IsProductionCheckBox" />
