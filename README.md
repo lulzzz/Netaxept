@@ -67,11 +67,11 @@ Login into Commerce Manager and open **Administration -> Order System -> Payment
 - select shipping methods available for this payment
 - navigate to parameters tab and fill in settings (see screenshot below)
 
-![Payment method settings](/Netaxept/docs/screenshots/overview.PNG?raw=true "Payment method settings")
+![Payment method settings](/docs/screenshots/overview.PNG?raw=true "Payment method settings")
 
 The merchant id and token are necessary for establishing a connection to the service of Netaxept.
 
-![Payment method settings](/Netaxept/docs/screenshots/parameters.PNG?raw=true "Payment method parameters")
+![Payment method settings](/docs/screenshots/parameters.PNG?raw=true "Payment method parameters")
 
 **Note: If the parameters tab is empty (or gateway class is missing), make sure you have installed the commerce manager nuget (see above)**
 
@@ -110,7 +110,7 @@ The transaction id is passed as parameter to the Index method. On the NetaxeptCh
 an error code is returned. If the result is ok, then the cart should be saved as a purchase order to finalize the checkout. During the payment process, notes are saved on the cart (register and auth steps), you can copy the notes to the purchase order if you 
 would like a complete history of the payment process.
 
-![Order notes](/Netaxept/docs/screenshots/notes.PNG?raw=true "Order notes")
+![Order notes](/docs/screenshots/notes.PNG?raw=true "Order notes")
 
 ```
 public PaymentCallbackController(IOrderGroupCalculator orderGroupCalculator,
@@ -294,3 +294,6 @@ The card information of the payment is saved on payment object and the customer 
 
 ## Package maintainer
 https://github.com/patkleef
+
+## Changelog
+[Changelog](CHANGELOG.md)
