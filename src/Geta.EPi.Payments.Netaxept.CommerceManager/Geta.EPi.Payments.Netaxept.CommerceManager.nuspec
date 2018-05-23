@@ -11,11 +11,7 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
     <copyright>Copyright 2018 Geta</copyright>
-    <tags>EPiServer Commerce 11</tags>
-    <dependencies>
-      <dependency id="EPiServer.CMS.Core" version="[11.2.1, 12)" />
-      <dependency id="EPiServer.Commerce.Core" version="[11.5.0, 12)" />
-    </dependencies>
+    <tags>EPiServer Commerce 12</tags>
   </metadata>
   <files>
     <file src="web.config.install.xdt" target="content" />
