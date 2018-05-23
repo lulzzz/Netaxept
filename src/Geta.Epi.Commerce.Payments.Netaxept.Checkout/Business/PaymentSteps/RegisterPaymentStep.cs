@@ -22,7 +22,7 @@ namespace Geta.Epi.Commerce.Payments.Netaxept.Checkout.Business.PaymentSteps
     /// </summary>
     public class RegisterPaymentStep : PaymentStep
     {
-        private readonly Injected<IOrderGroupTotalsCalculator> _orderGroupTotalsCalculator;
+        private readonly Injected<IOrderGroupCalculator> _orderGroupCalculator;
         private static readonly ILogger Logger = LogManager.GetLogger(typeof(RegisterPaymentStep));
 
         public RegisterPaymentStep(IPayment payment) : base(payment)
@@ -108,14 +108,14 @@ namespace Geta.Epi.Commerce.Payments.Netaxept.Checkout.Business.PaymentSteps
                 }
             }
 
-            var calculatedTotals = _orderGroupTotalsCalculator.Service.GetTotals(orderGroup);
+            var calculatedTotals = _orderGroupCalculator.Service.GetOrderGroupTotals(orderGroup);
 
             request.Amount = PaymentStepHelper.GetAmount(payment.Amount);
             request.TaxTotal = PaymentStepHelper.GetAmount(calculatedTotals.TaxTotal.Amount);
             request.CurrencyCode = orderGroup.Currency.CurrencyCode;
             request.OrderDescription = "Netaxept order";
             request.OrderNumber = CartOrderNumberHelper.GenerateOrderNumber(orderGroup);
-            
+
             request.Language = paymentMethodDto.GetParameter(NetaxeptConstants.TerminalLanguageField);
             request.EnableEasyPayments = bool.Parse(paymentMethodDto.GetParameter(NetaxeptConstants.EnableEasyPaymentField, "false"));
 
