@@ -60,7 +60,7 @@ namespace Test.Integration
             request.CurrencyCode = "USD";
             request.OrderDescription = "Netaxept order";
             request.OrderNumber = "1234567890";
-            
+
             request.Language = "en_GB";
 
             request.SuccessUrl = "http://www.google.nl";
